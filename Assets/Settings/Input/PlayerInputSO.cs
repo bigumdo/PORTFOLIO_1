@@ -29,20 +29,30 @@ namespace BGD.Player
         }
         public void OnAttack(InputAction.CallbackContext context)
         {
-            
+            AttackEvent?.Invoke();
         }
 
         public void OnInteract(InputAction.CallbackContext context)
         {
-            
+            InteractEvent?.Invoke();
         }
 
         public void OnJump(InputAction.CallbackContext context)
         {
-            
+            JumpEvent?.Invoke();
         }
 
         public void OnMove(InputAction.CallbackContext context)
+        {
+            InputDirection = context.ReadValue<Vector2>();
+        }
+
+        public void OnDash(InputAction.CallbackContext context)
+        {
+            
+        }
+
+        public void OnGuard(InputAction.CallbackContext context)
         {
             
         }
