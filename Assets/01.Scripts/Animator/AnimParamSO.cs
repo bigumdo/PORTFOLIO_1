@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace BGD.Animators
 {
-    [CreateAssetMenu(fileName = "AnimParamSO", menuName = "SO/AnimParamSO")]
+    [CreateAssetMenu(fileName = "AnimParamSO", menuName = "SO/Anim/ParamSO")]
     public class AnimParamSO : ScriptableObject
     {
         public string paramName;
