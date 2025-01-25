@@ -49,12 +49,12 @@ namespace BGD.Player
 
         public void OnDash(InputAction.CallbackContext context)
         {
-            
+            DashEvent?.Invoke();
         }
 
         public void OnGuard(InputAction.CallbackContext context)
         {
-            
+            GuardEvent?.Invoke();
         }
     }
 }

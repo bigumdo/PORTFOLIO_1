@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace BGD.Agent
+namespace BGD.Agents
 {
     public interface IAgentComponent
     {
