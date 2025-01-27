@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BGD.Combat
 {
@@ -35,22 +36,40 @@ namespace BGD.Combat
             }
         }
 
-        public bool Cast(CastTypeEnum castType)//원하는 캐스트 타입과 얼마나 체크할지를 받는다.
+        public bool Cast(CastTypeEnum castType, bool multiCast = true)//원하는 캐스트 타입과 얼마나 체크할지를 받는다.
         {
-            _currentCast = _casters.GetValueOrDefault(castType);//타입에 맞는 Cast를 갖고 온다.
-            Debug.Assert(_currentCast != null, $"{castType}cast없어 돌아가"); // CurrentCast가 Null아니라면 실행
-
-            _agentDir = new Vector2(_currentCast.castOffset.x * _agentRenderer.FacingDirection, _currentCast.castOffset.y);
-            castTargets = Physics2D.OverlapCircleAll((Vector2)transform.position + _agentDir, _currentCast.castRange
-                , _currentCast.targetLayer, 0, _currentCast.castCnt);//cat설정에 맞게 OverapCircleAll체크
-            if (castTargets.Length > 0)
+            if(multiCast)
             {
-                return _currentCast.Cast(castTargets);//체크된 객체가 있다면 현재 cast에게 collider[]변수를 넘긴다.
-                //Debug.Log("감지");
-            }
-            return false;
-            //else
+                _currentCast = _casters.GetValueOrDefault(castType);//타입에 맞는 Cast를 갖고 온다.
+                Debug.Assert(_currentCast != null, $"{castType}cast없어 돌아가"); // CurrentCast가 Null아니라면 실행
+
+                _agentDir = new Vector2(_currentCast.castOffset.x * _agentRenderer.FacingDirection, _currentCast.castOffset.y);
+                castTargets = Physics2D.OverlapCircleAll((Vector2)transform.position + _agentDir, _currentCast.castRange
+                    , _currentCast.targetLayer, 0, _currentCast.castCnt);//cat설정에 맞게 OverapCircleAll체크
+                if (castTargets.Length > 0)
+                {
+                    return _currentCast.Cast(castTargets);//체크된 객체가 있다면 현재 cast에게 collider[]변수를 넘긴다.
+                                                          //Debug.Log("감지");
+                }
+                return false;
+                //else
                 //Debug.Log("주변에 감지된 물체가 없습니다.");
+            }
+            else
+            {
+                _currentCast = _casters.GetValueOrDefault(castType);//타입에 맞는 Cast를 갖고 온다.
+                Debug.Assert(_currentCast != null, $"{castType}cast없어 돌아가"); // CurrentCast가 Null아니라면 실행
+
+
+
+                return false;
+            }
+
+        }
+
+        public bool DefaultCast(Vector2 offset, Vector2 width,float range, LayerMask mask, int angle)
+        {
+            return Physics2D.BoxCast((Vector2)transform.position + offset, width, angle, Vector2.right * _agentRenderer.FacingDirection);
         }
 
         private void OnDrawGizmos()

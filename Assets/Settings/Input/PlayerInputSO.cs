@@ -10,7 +10,7 @@ namespace BGD.Player
         public event Action JumpEvent;
         public event Action DashEvent;
         public event Action AttackEvent;
-        public event Action SlideEvent;
+        //public event Action SlideEvent;
         public event Action GuardEvent;
         public event Action InteractEvent;
 
