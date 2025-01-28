@@ -1,19 +1,11 @@
 using UnityEngine;
 
-namespace BGD
+namespace BGD.Tests
 {
     public class Test : MonoBehaviour
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+        public bool showDetails; // 조건이 되는 변수
+        public string basicInfo; // 항상 표시
+        public string detailedInfo; // 조건에 따라 표시
     }
 }
