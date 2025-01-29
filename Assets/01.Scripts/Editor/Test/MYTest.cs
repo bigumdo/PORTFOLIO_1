@@ -4,31 +4,32 @@ using UnityEngine;
 
 namespace BGD.CustomEditors
 {
-    [CustomEditor(typeof(Test))]
+    [CustomEditor(typeof(TestAbstract),true)]
     public class MyScriptEditor : Editor
     {
         public override void OnInspectorGUI()
         {
-            // 스크립트 참조
-            Test myScript = (Test)target;
+            serializedObject.Update();
 
-            // 기본 필드 표시
-            myScript.basicInfo = EditorGUILayout.TextField("Basic Info", myScript.basicInfo);
+            EditorGUILayout.LabelField("Base Character Editor", EditorStyles.boldLabel);
+            //EditorGUILayout.PropertyField(serializedObject.FindProperty("showDetails"));
+            //EditorGUILayout.PropertyField(serializedObject.FindProperty("basicInfo"));
+            //EditorGUILayout.PropertyField(serializedObject.FindProperty("detailedInfo"));
 
-            // 조건 체크박스 표시
-            myScript.showDetails = EditorGUILayout.Toggle("Show Details", myScript.showDetails);
-
-            // 조건에 따라 필드 표시
-            if (myScript.showDetails)
+            // 개별 클래스의 필드도 자동 적용됨
+            SerializedProperty iterator = serializedObject.GetIterator();
+            bool enterChildren = true;
+            
+            while (iterator.NextVisible(enterChildren))
             {
-                myScript.detailedInfo = EditorGUILayout.TextField("Detailed Info", myScript.detailedInfo);
+                if (iterator.name != "m_Script" && iterator.name != "characterName" && iterator.name != "health")
+                {
+                    EditorGUILayout.PropertyField(iterator, true);
+                }
+                enterChildren = false;
             }
 
-            // 값이 변경되었을 경우 저장
-            if (GUI.changed)
-            {
-                EditorUtility.SetDirty(myScript);
-            }
+            serializedObject.ApplyModifiedProperties();
         }
     }
 }
