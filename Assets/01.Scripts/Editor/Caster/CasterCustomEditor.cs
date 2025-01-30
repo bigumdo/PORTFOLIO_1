@@ -25,7 +25,11 @@ namespace BGD.CustomEditors
 
             //모든 직렬화된 변수를 가르킴
             SerializedProperty iterator = serializedObject.GetIterator();
-
+            bool enterChildren = true;
+            while (iterator.NextVisible(enterChildren))
+            {
+                enterChildren = false;
+            }
             //iterator가 가르키는 직렬화된 변수를 Inspecter에 표시함
             //true를 추가하여 자식 오브젝트에 포함해서 자동으로 표시
             EditorGUILayout.PropertyField(iterator, true);
