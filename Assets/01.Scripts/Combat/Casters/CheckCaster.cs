@@ -6,7 +6,7 @@ namespace BGD.Combat
     {
         public override bool Cast(Collider2D[] colliders)
         {
-            return false;   
+            return false;
         }
     }
 }

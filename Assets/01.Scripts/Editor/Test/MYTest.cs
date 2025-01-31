@@ -22,10 +22,8 @@ namespace BGD.CustomEditors
             
             while (iterator.NextVisible(enterChildren))
             {
-                if (iterator.name != "m_Script" && iterator.name != "characterName" && iterator.name != "health")
-                {
-                    EditorGUILayout.PropertyField(iterator, true);
-                }
+                EditorGUILayout.PropertyField(iterator, false);
+
                 enterChildren = false;
             }
 

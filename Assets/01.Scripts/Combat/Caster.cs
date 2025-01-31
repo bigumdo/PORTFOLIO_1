@@ -28,7 +28,7 @@ namespace BGD.Combat
             _agent = agent;
             _agentRenderer = agent.GetCompo<AgentRenderer>();
             _casters = new Dictionary<CastTypeEnum, BaseCaster>();
-            BaseCaster[] casts = GetComponents<BaseCaster>();//감지할 캐스트 종류를 가져옴
+            BaseCaster[] casts = GetComponentsInChildren<BaseCaster>();//감지할 캐스트 종류를 가져옴
             foreach (BaseCaster c in casts)
             {
                 c.Initialize(agent);
@@ -36,12 +36,14 @@ namespace BGD.Combat
             }
         }
 
-        public bool Cast(CastTypeEnum castType, bool multiCast = true)//원하는 캐스트 타입과 얼마나 체크할지를 받는다.
+        public bool CircleCast(CastMethodType castMethodType ,CastTypeEnum castType, bool multiCast = true)//원하는 캐스트 타입과 얼마나 체크할지를 받는다.
         {
+
             if(multiCast)
             {
                 _currentCast = _casters.GetValueOrDefault(castType);//타입에 맞는 Cast를 갖고 온다.
                 Debug.Assert(_currentCast != null, $"{castType}cast없어 돌아가"); // CurrentCast가 Null아니라면 실행
+                _currentCast.castMethodType = castMethodType;
 
                 _agentDir = new Vector2(_currentCast.castOffset.x * _agentRenderer.FacingDirection, _currentCast.castOffset.y);
                 castTargets = Physics2D.OverlapCircleAll((Vector2)transform.position + _agentDir, _currentCast.castRange
@@ -59,7 +61,7 @@ namespace BGD.Combat
             {
                 _currentCast = _casters.GetValueOrDefault(castType);//타입에 맞는 Cast를 갖고 온다.
                 Debug.Assert(_currentCast != null, $"{castType}cast없어 돌아가"); // CurrentCast가 Null아니라면 실행
-
+                _currentCast.castMethodType = castMethodType;
 
 
                 return false;
@@ -67,16 +69,15 @@ namespace BGD.Combat
 
         }
 
+        public bool BoxCast(CastTypeEnum castType, bool multiCast = true)
+        {
+            return false;
+        }
+
         public bool DefaultCast(Vector2 offset, Vector2 width,float range, LayerMask mask, int angle)
         {
             return Physics2D.BoxCast((Vector2)transform.position + offset, width, angle, Vector2.right * _agentRenderer.FacingDirection);
         }
 
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.green;
-            if(_currentCast != null ) 
-                Gizmos.DrawWireSphere((Vector2)transform.position + _agentDir, _currentCast.castRange);
-        }
     }
 }
