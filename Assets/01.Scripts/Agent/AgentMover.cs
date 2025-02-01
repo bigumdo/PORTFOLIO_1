@@ -1,3 +1,4 @@
+using BGD.Combat;
 using BGD.FSM;
 using BGD.StatSystem;
 using System;
@@ -16,7 +17,6 @@ namespace BGD.Agents
         [SerializeField] private StatSO _moveSpeedStat;
         [SerializeField] private float _moveSpeed;
 
-        [SerializeField] private Transform _groundChecker, _wallChecker, _grabWallChecker;
         [SerializeField] private LayerMask _layerMask;
         [SerializeField] private float _groundCheckWidth, _wallCheckerWidth, _grabWallCheckerWidth;
 
@@ -27,6 +27,7 @@ namespace BGD.Agents
         private Agent _agent;
         private AgentRenderer _renderer;
         private AgentStat _stat;
+        private Caster _caster;
 
         private float _xMovement;
 
@@ -38,7 +39,7 @@ namespace BGD.Agents
             _rbcompo = agent.GetComponent<Rigidbody2D>();
             _renderer = agent.GetComponent<AgentRenderer>();
             _stat = agent.GetCompo<AgentStat>();
-
+            _caster = agent.GetCompo<Caster>();
             _collider = agent.GetComponent<Collider2D>();
         }
 
@@ -84,6 +85,16 @@ namespace BGD.Agents
             //MoveCharacter();
 
             _rbcompo.linearVelocityY = Math.Clamp(_rbcompo.linearVelocityY, -LimitYSpeed, LimitYSpeed);
+        }
+
+        private void CheckGround()
+        {
+
+        }
+
+        private void IsWallDetected()
+        {
+
         }
 
         public void Movement()
