@@ -48,7 +48,7 @@ namespace BGD.Combat
                 case CastMethodType.Circle:
                     return CircleCast();
                 case CastMethodType.Box:
-                    break;
+                    return BoxCast();
             }
             return false;
         }

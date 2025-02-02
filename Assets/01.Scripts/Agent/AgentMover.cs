@@ -89,7 +89,7 @@ namespace BGD.Agents
 
         private void CheckGround()
         {
-
+            //_caster.Cast();
         }
 
         private void IsWallDetected()
