@@ -31,7 +31,8 @@ namespace BGD.Agents
 
         public void Flip()
         {
-
+            FacingDirection *= -1;
+            _agent.transform.Rotate(0, 180, 0);
         }
 
     }

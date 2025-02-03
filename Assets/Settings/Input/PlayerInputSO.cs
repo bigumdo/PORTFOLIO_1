@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace BGD.Player
+namespace BGD.Players
 {
     [CreateAssetMenu(fileName = "PlayerInputSO", menuName = "SO/PlayerInputSO")]
     public class PlayerInputSO : ScriptableObject, Controls.IPlayerActions
@@ -27,6 +27,12 @@ namespace BGD.Player
             }
             _controls.Player.Enable();
         }
+
+        private void OnDisable()
+        {
+            _controls.Player.Disable();
+        }
+
         public void OnAttack(InputAction.CallbackContext context)
         {
             AttackEvent?.Invoke();

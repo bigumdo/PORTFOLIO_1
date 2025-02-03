@@ -82,9 +82,20 @@ namespace BGD.Agents
         public void FixedUpdate()
         {
             //CheckGround();
-            //MoveCharacter();
+            MoveCharacter();
 
             _rbcompo.linearVelocityY = Math.Clamp(_rbcompo.linearVelocityY, -LimitYSpeed, LimitYSpeed);
+        }
+
+        private void MoveCharacter()
+        {
+            if(CanMove)
+            {
+                _rbcompo.linearVelocityX = _xMovement + _moveSpeed;
+            }
+
+            _renderer.FlipControl(_xMovement);
+
         }
 
         private void CheckGround()

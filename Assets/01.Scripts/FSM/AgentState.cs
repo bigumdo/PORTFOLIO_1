@@ -34,6 +34,11 @@ namespace BGD.FSM
             _animTrigger.OnAnimationEndTrigger += AnimationEndTrigger;
         }
 
+        public virtual void Update()
+        {
+
+        }
+
         public virtual void AnimationEndTrigger()
         {
             _isEndTrigger = true;
