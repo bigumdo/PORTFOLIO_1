@@ -227,7 +227,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6.75
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4286,7 +4286,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   states: {fileID: 0}
-  <PlayerInput>k__BackingField: {fileID: 0}
+  <PlayerInput>k__BackingField: {fileID: 11400000, guid: b6c7843907f5f5e44a4ca63c500a2895, type: 2}
 --- !u!50 &1991962286
 Rigidbody2D:
   serializedVersion: 5
