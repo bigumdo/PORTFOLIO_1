@@ -14,16 +14,15 @@ namespace BGD.FSM
         public StateMachine(Agent agent, AgentStateListSO stateList)
         {
             _states = new Dictionary<FSMState, AgentState>();
-
-            foreach(StateSO state in stateList.states)
+            foreach (StateSO state in stateList.states)
             {
                 try
                 {
                     Type t = Type.GetType(state.className);
-                    var agentState = Activator.CreateInstance(t, agent, state.animParam) as AgentState;
-                    _states.Add(state.stateName, agentState);
+                    var entityState = Activator.CreateInstance(t, agent, state.animParam) as AgentState;
+                    _states.Add(state.stateName, entityState);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Debug.LogError($"{state.stateName}로딩 문제있음 , Error.Message : {ex.Message}");
                 }

@@ -1,5 +1,7 @@
 using BGD.Agents;
+using BGD.Animators;
 using BGD.FSM;
+using System;
 using UnityEngine;
 
 namespace BGD.Players
@@ -16,7 +18,7 @@ namespace BGD.Players
         {
             base.Awake();
             _stateMachine = new StateMachine(this, states);
-            _stateMachine.Initialize(FSMState.Idle);
+            _stateMachine.Initialize(FSMState.IDLE);
         }
 
         public void ChangeState(FSMState changeState)

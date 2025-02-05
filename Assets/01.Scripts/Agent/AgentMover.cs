@@ -37,7 +37,7 @@ namespace BGD.Agents
         {
             _agent = agent;
             _rbcompo = agent.GetComponent<Rigidbody2D>();
-            _renderer = agent.GetComponent<AgentRenderer>();
+            _renderer = agent.GetCompo<AgentRenderer>();
             _stat = agent.GetCompo<AgentStat>();
             _caster = agent.GetCompo<Caster>();
             _collider = agent.GetComponent<Collider2D>();
@@ -57,7 +57,7 @@ namespace BGD.Agents
 
         private void HandleMoveSpeedChange(StatSO stat, float current, float previous)
         {
-            _xMovement = current;
+            _moveSpeed = current;
         }
 
         public void AddForceToAgent(Vector2 force, ForceMode2D forceMode = ForceMode2D.Impulse)

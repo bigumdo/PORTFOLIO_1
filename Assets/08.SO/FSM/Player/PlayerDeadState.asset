@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987cf72f336972740aeb14f192201bbe, type: 3}
   m_Name: PlayerDeadState
   m_EditorClassIdentifier: 
-  stateName: 0
-  className: 
-  animParam: {fileID: 0}
+  stateName: 2
+  className: BGD.Players.PlayerDeadState
+  animParam: {fileID: 11400000, guid: 17f258bd88828374bacf5025e8e21cb4, type: 2}

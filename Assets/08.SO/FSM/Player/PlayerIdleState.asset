@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerIdleState
   m_EditorClassIdentifier: 
   stateName: 0
-  className: 
-  animParam: {fileID: 0}
+  className: BGD.Players.PlayerIdleState
+  animParam: {fileID: 11400000, guid: 30056aee0c0c4b3479c122bb93bf72fe, type: 2}

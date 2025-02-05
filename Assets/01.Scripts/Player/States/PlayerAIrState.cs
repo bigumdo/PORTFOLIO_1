@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace BGD
+namespace BGD.Players
 {
-    public class PlayerAIrState
+    public class PlayerAirState
     {
     
     }

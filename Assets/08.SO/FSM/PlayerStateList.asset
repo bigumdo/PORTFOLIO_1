@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82041e93527f3f8468ba6c3e178fe2cb, type: 3}
   m_Name: PlayerStateList
   m_EditorClassIdentifier: 
-  states: []
+  states:
+  - {fileID: 11400000, guid: a74d5d3bec9c8a447885fdeda8796e2e, type: 2}
+  - {fileID: 11400000, guid: 32600057e19e24f46ae1b7b8bf7506f2, type: 2}

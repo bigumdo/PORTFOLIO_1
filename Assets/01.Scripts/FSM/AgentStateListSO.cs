@@ -6,11 +6,11 @@ namespace BGD.FSM
 {
     public enum FSMState
     {
-        Idle,
-        Move,
-        Dead,
-        Attack,
-        Battle
+        IDLE,
+        MOVE,
+        DEAD,
+        ATTACK,
+        BATTLE
     }
 
     [CreateAssetMenu(menuName = "SO/FSM/AgentStateListSO")]

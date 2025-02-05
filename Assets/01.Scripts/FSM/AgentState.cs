@@ -1,10 +1,9 @@
 using BGD.Agents;
 using BGD.Animators;
-using UnityEngine;
 
 namespace BGD.FSM
 {
-    public class AgentState
+    public abstract class AgentState
     {
         protected Agent _agent;
         protected AnimParamSO _animParam;
@@ -17,21 +16,21 @@ namespace BGD.FSM
         {
             _agent = agent;
             _animParam = animParam;
-            _animTrigger = _agent.GetCompo<AgentAnimationTrigger>(true);
             _renderer = agent.GetCompo<AgentRenderer>();
+            _animTrigger = _agent.GetCompo<AgentAnimationTrigger>(true);
         }
 
         public virtual void Enter()
         {
-            _renderer.SetParam(_animParam, true);
             _isEndTrigger = false;
+            _renderer.SetParam(_animParam, true);
             _animTrigger.OnAnimationEndTrigger += AnimationEndTrigger;
         }
 
         public virtual void Exit()
         {
             _renderer.SetParam(_animParam, false);
-            _animTrigger.OnAnimationEndTrigger += AnimationEndTrigger;
+            _animTrigger.OnAnimationEndTrigger -= AnimationEndTrigger;
         }
 
         public virtual void Update()

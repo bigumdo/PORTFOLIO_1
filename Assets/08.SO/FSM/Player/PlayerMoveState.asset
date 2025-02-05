@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987cf72f336972740aeb14f192201bbe, type: 3}
   m_Name: PlayerMoveState
   m_EditorClassIdentifier: 
-  stateName: 0
-  className: 
-  animParam: {fileID: 0}
+  stateName: 1
+  className: BGD.Players.PlayerMoveState
+  animParam: {fileID: 11400000, guid: b5f888496ad19f646888b289f6d6ee17, type: 2}

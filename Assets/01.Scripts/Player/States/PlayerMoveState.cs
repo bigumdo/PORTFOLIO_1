@@ -1,6 +1,6 @@
 using BGD.Agents;
 using BGD.Animators;
-using UnityEngine;
+using BGD.FSM;
 
 namespace BGD.Players
 {
@@ -13,7 +13,7 @@ namespace BGD.Players
         public override void Update()
         {
             base.Update();
-            _mover.SetMovement(_player.PlayerInput.InputDirection.x);
+            //_mover.SetMovement(_player.PlayerInput.InputDirection.x);
         }
     }
 }

@@ -5,7 +5,7 @@ namespace BGD.Agents
 {
     public class AgentRenderer : MonoBehaviour, IAgentComponent
     {
-        public float FacingDirection { get; private set; }
+        public float FacingDirection { get; private set; } = 1;
 
         private Agent _agent;
         private Animator _animator;
@@ -14,11 +14,12 @@ namespace BGD.Agents
         public void Initialize(Agent agent)
         {
             _agent = agent;
-            _animator = agent.GetComponent<Animator>();
+            _animator = GetComponent<Animator>();
             _spriteRenderer = agent.GetComponent<SpriteRenderer>();
         }
 
-        public void SetParam(AnimParamSO paramSO, bool value) => _animator.SetBool(paramSO.hashValue, value);
+        public void SetParam(AnimParamSO paramSO, bool value) => _animator.SetBool("IDLE", value);
+
         public void SetParam(AnimParamSO paramSO, float value) => _animator.SetFloat(paramSO.hashValue, value);
         public void SetParam(AnimParamSO paramSO, int value) => _animator.SetInteger(paramSO.hashValue, value);
         public void SetParam(AnimParamSO paramSO) => _animator.SetTrigger(paramSO.hashValue);
