@@ -1,6 +1,6 @@
 using BGD.Agents;
 using BGD.Animators;
-using BGD.FSM;
+using UnityEngine;
 
 namespace BGD.Players
 {
@@ -13,7 +13,18 @@ namespace BGD.Players
         public override void Update()
         {
             base.Update();
-            //_mover.SetMovement(_player.PlayerInput.InputDirection.x);
+            _mover.SetMovement(_player.PlayerInput.InputDirection.x);
+            float xInput = _player.PlayerInput.InputDirection.x;
+            if (Mathf.Abs(xInput) < 0.5f)
+            {
+                _player.ChangeState(FSM.FSMState.IDLE);
+            }
+
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                _mover.StopImmediately();
+            }
+            
         }
     }
 }

@@ -21,6 +21,11 @@ namespace BGD.Players
             _stateMachine.Initialize(FSMState.IDLE);
         }
 
+        private void Update()
+        {
+            _stateMachine.currentState.Update();
+        }
+
         public void ChangeState(FSMState changeState)
         {
             _stateMachine.ChangeState(changeState);

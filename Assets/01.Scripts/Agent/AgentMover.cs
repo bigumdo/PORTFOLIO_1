@@ -9,7 +9,7 @@ namespace BGD.Agents
     public class AgentMover : MonoBehaviour, IAgentComponent, IAfterInit
     {
         public Vector2 Velocity => _rbcompo.linearVelocity;
-        public bool CanMove { get; set;}
+        public bool CanMove { get; set; } = true;
         public bool IsGrounded { get; set;}
         public float LimitYSpeed { get; set;}
 
@@ -29,7 +29,7 @@ namespace BGD.Agents
         private AgentStat _stat;
         private Caster _caster;
 
-        private float _xMovement;
+        private float _xMovement ;
 
         private Collider2D _collider;
 
@@ -91,7 +91,7 @@ namespace BGD.Agents
         {
             if(CanMove)
             {
-                _rbcompo.linearVelocityX = _xMovement + _moveSpeed;
+                _rbcompo.linearVelocityX = _xMovement * _moveSpeed;
             }
 
             _renderer.FlipControl(_xMovement);

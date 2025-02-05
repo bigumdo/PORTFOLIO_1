@@ -18,7 +18,7 @@ namespace BGD.Agents
             _spriteRenderer = agent.GetComponent<SpriteRenderer>();
         }
 
-        public void SetParam(AnimParamSO paramSO, bool value) => _animator.SetBool("IDLE", value);
+        public void SetParam(AnimParamSO paramSO, bool value) => _animator.SetBool(paramSO.hashValue, value);
 
         public void SetParam(AnimParamSO paramSO, float value) => _animator.SetFloat(paramSO.hashValue, value);
         public void SetParam(AnimParamSO paramSO, int value) => _animator.SetInteger(paramSO.hashValue, value);

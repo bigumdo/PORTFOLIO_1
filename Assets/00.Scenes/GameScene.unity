@@ -734,7 +734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1195799685
 Transform:
   m_ObjectHideFlags: 0
@@ -766,11 +766,11 @@ MonoBehaviour:
   _moveSpeed: {fileID: 11400000, guid: 0b0935d9bf2b63140bdaf1f6a7179a6c, type: 2}
   _statOverrides:
   - _stat: {fileID: 11400000, guid: f017daa065b200e4aa4fe39bcff832a5, type: 2}
-    _isUseOverride: 0
+    _isUseOverride: 1
     _overrideBaseValue: 0
   - _stat: {fileID: 11400000, guid: 0b0935d9bf2b63140bdaf1f6a7179a6c, type: 2}
-    _isUseOverride: 0
-    _overrideBaseValue: 0
+    _isUseOverride: 1
+    _overrideBaseValue: 5
 --- !u!1 &1647203760
 GameObject:
   m_ObjectHideFlags: 0
