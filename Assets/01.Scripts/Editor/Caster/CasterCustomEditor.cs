@@ -2,6 +2,7 @@ using BGD.Combat;
 using UnityEditor;
 using UnityEditor.TerrainTools;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace BGD.CustomEditors
 {
@@ -22,7 +23,7 @@ namespace BGD.CustomEditors
             serializedObject.Update(); // 변경 감지 시작
 
             //base.OnInspectorGUI();
-            EditorGUILayout.TextField("Setting", EditorStyles.boldLabel);
+            EditorGUILayout.TextField("DefaultSetting", EditorStyles.boldLabel);
             EditorGUILayout.Space();
 
             //모든 직렬화된 변수를 가르킴
@@ -34,23 +35,41 @@ namespace BGD.CustomEditors
                 //해당 클래스의 변수를 표시 true일 경우 변수의 자식 값도 표시
                 //iterator가 가르키는 직렬화된 변수를 Inspecter에 표시함
                 //true를 추가하여 자식 오브젝트에 포함해서 자동으로 표시
-                if(iterator.name != "castRange" && iterator.name != "castSize")
+                if(iterator.name != "castRange" && iterator.name != "castSize" && iterator.name != "rayDirection"
+                    && iterator.name != "rayDistance")
                     EditorGUILayout.PropertyField(iterator, true);
+
 
                 if (myTarget.castMethodType == CastMethodType.Circle && iterator.name == "castRange")
                 {
+                    EditorGUILayout.Space();
+                    EditorGUILayout.TextField("CastSetting", EditorStyles.boldLabel);
                     SerializedProperty castRangeProp = serializedObject.FindProperty("castRange");
                     EditorGUILayout.PropertyField(castRangeProp);
+                    EditorGUILayout.Space();
                 }
                 else if(myTarget.castMethodType == CastMethodType.Box && iterator.name == "castSize")
                 {
-                    SerializedProperty castRangeProp = serializedObject.FindProperty("castSize");
-                    EditorGUILayout.PropertyField(castRangeProp);
+                    EditorGUILayout.Space();
+                    EditorGUILayout.TextField("CastSetting", EditorStyles.boldLabel);
+                    SerializedProperty castSizeProp = serializedObject.FindProperty("castSize");
+                    EditorGUILayout.PropertyField(castSizeProp);
+                    EditorGUILayout.Space();
+                }
+                else if (myTarget.castMethodType == CastMethodType.Ray && iterator.name == "rayDirection")
+                {
+                    EditorGUILayout.Space();
+                    EditorGUILayout.TextField("CastSetting", EditorStyles.boldLabel);
+                    SerializedProperty rayDirectionProp = serializedObject.FindProperty("rayDirection");
+                    EditorGUILayout.PropertyField(rayDirectionProp);
+
+                    SerializedProperty rayDistanceProp = serializedObject.FindProperty("rayDistance");
+                    EditorGUILayout.PropertyField(rayDistanceProp);
+                    EditorGUILayout.Space();
                 }
 
                 enterChildren = false;
             }
-
             //변경된 값 반영(Undo/Redo)지원
             serializedObject.ApplyModifiedProperties();
         }

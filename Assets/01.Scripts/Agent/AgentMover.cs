@@ -29,7 +29,7 @@ namespace BGD.Agents
         private AgentStat _stat;
         private Caster _caster;
 
-        private float _xMovement ;
+        private float _xMovement;
 
         private Collider2D _collider;
 
@@ -65,6 +65,11 @@ namespace BGD.Agents
             _rbcompo.AddForce(force, forceMode);
         }
 
+        public void AddForce(Vector2 force, ForceMode2D forceMode2D = ForceMode2D.Impulse)
+        {
+            _rbcompo.AddForce(force, forceMode2D);
+        }
+
         public void StopImmediately(bool resetYAxis = false)
         {
             if(resetYAxis)
@@ -81,7 +86,7 @@ namespace BGD.Agents
 
         public void FixedUpdate()
         {
-            //CheckGround();
+            CheckGround();
             MoveCharacter();
 
             _rbcompo.linearVelocityY = Math.Clamp(_rbcompo.linearVelocityY, -LimitYSpeed, LimitYSpeed);
@@ -100,7 +105,7 @@ namespace BGD.Agents
 
         private void CheckGround()
         {
-            //_caster.Cast();
+            IsGrounded = _caster.Cast(CastTypeEnum.Ground);
         }
 
         private void IsWallDetected()

@@ -1,4 +1,5 @@
 using BGD.Agents;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -49,7 +50,30 @@ namespace BGD.Combat
                     return CircleCast();
                 case CastMethodType.Box:
                     return BoxCast();
+                case CastMethodType.Ray:
+                    return RayCast();
             }
+            return false;
+        }
+
+        private bool RayCast()
+        {
+            switch (_currentCast.rayDirection)
+            {
+                case RayDirection.Right:
+                    _agentDir = Vector2.right;
+                    break;
+                case RayDirection.Left:
+                    _agentDir = Vector2.left;
+                    break;
+                case RayDirection.Up:
+                    _agentDir = Vector2.up;
+                    break;
+                case RayDirection.Down:
+                    _agentDir = Vector2.down;
+                    break;
+            }
+            RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, _agentDir);
             return false;
         }
 

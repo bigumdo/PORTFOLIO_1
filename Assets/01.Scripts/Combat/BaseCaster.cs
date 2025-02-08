@@ -8,9 +8,17 @@ namespace BGD.Combat
     public enum CastMethodType
     {
         Circle,
-        Box
+        Box,
+        Ray
     }
 
+    public enum RayDirection
+    {
+        Right,
+        Left,
+        Up,
+        Down
+    }
 
 
     public abstract class BaseCaster : MonoBehaviour
@@ -23,6 +31,8 @@ namespace BGD.Combat
 
         public Vector2 castOffset;
         public Vector2 castSize;
+        public RayDirection rayDirection;
+        public float rayDistance;
         public float castRange;
         public int castCnt;//얼마나 캐스트할 것인가
 

@@ -460,6 +460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 774462602}
+  - component: {fileID: 774462603}
   m_Layer: 0
   m_Name: GroundCaster
   m_TagString: Untagged
@@ -482,6 +483,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 984421458}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &774462603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774462601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a521a892ccfc8b4584fb85d42c6deba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castMethodType: 0
+  castType: 3
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  castOffset: {x: 0, y: 0}
+  castSize: {x: 0, y: 0}
+  rayDirection: 0
+  rayDistance: 0
+  castRange: 0
+  castCnt: 0
 --- !u!1 &800333344
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,13 +550,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d82847fbd3cc44f8526e972481c37b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castMethodType: 0
+  castMethodType: 2
   castType: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
   castOffset: {x: 0, y: 0}
   castSize: {x: 0, y: 0}
+  rayDirection: 0
+  rayDistance: 0
   castRange: 0
   castCnt: 0
 --- !u!1 &984421457
@@ -551,7 +577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &984421458
 Transform:
   m_ObjectHideFlags: 0
@@ -4149,11 +4175,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 08d64826321dbf645bbfc1a67ac9aeeb, type: 2}
+  m_GravityScale: 5
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
