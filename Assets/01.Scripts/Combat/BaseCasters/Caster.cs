@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BGD.Combat
+namespace BGD.Casters
 {
     public enum CastTypeEnum // Cast타입
     {
@@ -73,7 +73,15 @@ namespace BGD.Combat
                     _agentDir = Vector2.down;
                     break;
             }
-            RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, _agentDir);
+            RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, _agentDir, _currentCast.rayDistance);
+
+            if (hit.collider != null)
+            {
+                if(_currentCast is IRaycastCaster rayCaster)
+                {
+                    rayCaster.RayCast(hit);
+                }
+            }
             return false;
         }
 
@@ -84,7 +92,10 @@ namespace BGD.Combat
                 , _currentCast.targetLayer, 0, _currentCast.castCnt);//cat설정에 맞게 OverapCircleAll체크
             if (_castTargets.Length > 0)
             {
-                return _currentCast.Cast(_castTargets);//체크된 객체가 있다면 현재 cast에게 collider[]변수를 넘긴다.
+                if (_currentCast is IColliderCaster colliderCaster)
+                {
+                    return colliderCaster.ColliderCast(_castTargets);
+                }
             }
             return false;
         }
@@ -96,7 +107,10 @@ namespace BGD.Combat
                 , _currentCast.targetLayer, 0, _currentCast.castCnt);//cat설정에 맞게 OverapCircleAll체크
             if (_castTargets.Length > 0)
             {
-                return _currentCast.Cast(_castTargets);//체크된 객체가 있다면 현재 cast에게 collider[]변수를 넘긴다.
+                if (_currentCast is IColliderCaster colliderCaster)
+                {
+                    return colliderCaster.ColliderCast(_castTargets);
+                }
             }
             return false;
         }

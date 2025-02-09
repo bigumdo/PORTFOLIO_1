@@ -1,9 +1,9 @@
 using BGD.Agents;
-using BGD.Combat;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-namespace BGD.Combat
+namespace BGD.Casters
 {
     public enum CastMethodType
     {
@@ -36,7 +36,7 @@ namespace BGD.Combat
         public float castRange;
         public int castCnt;//얼마나 캐스트할 것인가
 
-        public abstract bool Cast(Collider2D[] colliders); //상속받아서 구현가능하도록 설게
+
         public virtual void Initialize(Agent agent)
         {
             _agent = agent;
@@ -58,6 +58,29 @@ namespace BGD.Combat
                     break;
                 case CastMethodType.Box:
                     Gizmos.DrawWireCube((Vector2)transform.position + castOffset,castSize);
+                    break;
+                case CastMethodType.Ray:
+                    Vector2 dir;
+                    switch (rayDirection)
+                    {
+                        case RayDirection.Right:
+                            dir = Vector2.right;
+                            break;
+                        case RayDirection.Left:
+                            dir = Vector2.left;
+                            break;
+                        case RayDirection.Up:
+                            dir = Vector2.up;
+                            break;
+                        case RayDirection.Down:
+                            dir = Vector2.down;
+                            break;
+                        default:
+                            dir = Vector2.right;
+                            break;
+                    }
+
+                    Gizmos.DrawRay((Vector2)transform.position, dir * rayDistance);
                     break;
             }
         }

@@ -1,4 +1,4 @@
-using BGD.Combat;
+using BGD.Casters;
 using BGD.FSM;
 using BGD.StatSystem;
 using System;

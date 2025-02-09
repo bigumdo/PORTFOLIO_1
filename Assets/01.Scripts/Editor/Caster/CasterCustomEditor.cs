@@ -1,4 +1,4 @@
-using BGD.Combat;
+using BGD.Casters;
 using UnityEditor;
 using UnityEditor.TerrainTools;
 using UnityEngine;
