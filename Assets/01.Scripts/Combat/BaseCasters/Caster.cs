@@ -88,8 +88,8 @@ namespace BGD.Casters
         private bool CircleCast()//원하는 캐스트 타입과 얼마나 체크할지를 받는다.
         {
             _agentDir = new Vector2(_currentCast.castOffset.x * _agentRenderer.FacingDirection, _currentCast.castOffset.y);
-            _castTargets = Physics2D.OverlapCircleAll((Vector2)transform.position + _agentDir, _currentCast.castRange
-                , _currentCast.targetLayer, 0, _currentCast.castCnt);//cat설정에 맞게 OverapCircleAll체크
+            _castTargets = Physics2D.OverlapCircleAll((Vector2)_currentCast.transform.position + _agentDir, _currentCast.castRange,
+                 _currentCast.targetLayer, 0, _currentCast.castCnt);//cat설정에 맞게 OverapCircleAll체크
             if (_castTargets.Length > 0)
             {
                 if (_currentCast is IColliderCaster colliderCaster)
@@ -103,8 +103,8 @@ namespace BGD.Casters
         private bool BoxCast()
         {
             _agentDir = new Vector2(_currentCast.castOffset.x * _agentRenderer.FacingDirection, _currentCast.castOffset.y);
-            _castTargets = Physics2D.OverlapBoxAll((Vector2)transform.position + _agentDir, _currentCast.castSize
-                , _currentCast.targetLayer, 0, _currentCast.castCnt);//cat설정에 맞게 OverapCircleAll체크
+            _castTargets = Physics2D.OverlapBoxAll((Vector2)_currentCast.transform.position + _agentDir, _currentCast.castSize,
+                 0, _currentCast.targetLayer,0,_currentCast.castCnt);//cat설정에 맞게 OverapCircleAll체크
             if (_castTargets.Length > 0)
             {
                 if (_currentCast is IColliderCaster colliderCaster)
