@@ -13,5 +13,6 @@ namespace BGD
         public bool isCameraShake;
         public float cameraShakeForce;
         public float cameraShakeDuration;
+
     }
 }

@@ -9,10 +9,12 @@ namespace BGD.Players
     public class Player : Agent
     {
         public AgentStateListSO states;
+        public AnimParamSO attackCompoParam;
         
         [field : SerializeField] public PlayerInputSO PlayerInput {get; private set;}
 
         private StateMachine _stateMachine;
+
 
         protected override void Awake()
         {
