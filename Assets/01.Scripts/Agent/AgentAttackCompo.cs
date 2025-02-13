@@ -1,5 +1,6 @@
 using BGD.Casters;
 using BGD.StatSystem;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,9 @@ namespace BGD.Agents
         private AgentMover _mover;
         private AgentStat _stat;
         private Dictionary<string, AttackDataSO> _attackDictionary;
+        private AttackDataSO _currentAttackData;
+        private AgentAnimationTrigger _animTrigger;
+        private float _damage;
 
         [SerializeField]private StatSO _damageStat;
         [SerializeField]private List<AttackDataSO> _attackDatas;
@@ -21,20 +25,38 @@ namespace BGD.Agents
             _caster = agent.GetCompo<Caster>();
             _mover = agent.GetCompo<AgentMover>();
             _stat = agent.GetCompo<AgentStat>();
-            _attackDictionary=  new Dictionary<string, AttackDataSO>();
+            _animTrigger = agent.GetCompo<AgentAnimationTrigger>();
+            _attackDictionary =  new Dictionary<string, AttackDataSO>();
             _attackDatas.ForEach(data => _attackDictionary.Add(data.dataName,data));
         }
         public void AfterInit()
         {
             _damageStat = _stat.GetStat(_damageStat);
+            _damage = _damageStat.Value;
+            _animTrigger.OnAttackTrigger += HandleAttackTrigger;
+        }
+
+        private void HandleAttackTrigger()
+        {
+
         }
 
         public AttackDataSO GetAttackData(string dataName)
         {
             AttackDataSO data = _attackDictionary.GetValueOrDefault(dataName,null);
-            Debug.Assert(data!=null,$"{dataName}없는 데이터 dlqslek.");
+            Debug.Assert(data!=null,$"{dataName}없는 데이터.");
             return data;
         }
 
+        public void SetAttackData(string dataName)
+        {
+            _currentAttackData = _attackDictionary.GetValueOrDefault(dataName, null);
+            Debug.Assert(_currentAttackData != null, $"{dataName}없는 데이터.");
+        }
+
+        public void Attack()
+        {
+
+        }
     }
 }

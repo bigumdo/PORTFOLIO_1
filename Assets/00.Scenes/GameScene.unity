@@ -4066,6 +4066,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72e0963249daab4299a37167e6535f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageStat: {fileID: 0}
+  _attackDatas: []
 --- !u!1 &1991962282
 GameObject:
   m_ObjectHideFlags: 0
@@ -4162,6 +4164,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   states: {fileID: 11400000, guid: c524e6d2c1a13cf4c8eef2a8bd488bc2, type: 2}
+  attackCompoParam: {fileID: 11400000, guid: e269098655365eb4c94961e6ae176372, type: 2}
   <PlayerInput>k__BackingField: {fileID: 11400000, guid: b6c7843907f5f5e44a4ca63c500a2895, type: 2}
 --- !u!50 &1991962286
 Rigidbody2D:
