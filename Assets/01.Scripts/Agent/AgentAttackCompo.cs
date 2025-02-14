@@ -19,6 +19,7 @@ namespace BGD.Agents
         [SerializeField]private StatSO _damageStat;
         [SerializeField]private List<AttackDataSO> _attackDatas;
 
+        public float Damge { get; private set; }
 
         public void Initialize(Agent agent)
         {
@@ -32,13 +33,13 @@ namespace BGD.Agents
         public void AfterInit()
         {
             _damageStat = _stat.GetStat(_damageStat);
-            _damage = _damageStat.Value;
             _animTrigger.OnAttackTrigger += HandleAttackTrigger;
         }
 
         private void HandleAttackTrigger()
         {
-
+            Damge = _damageStat.Value;
+            _caster.Cast(CastTypeEnum.Damge);
         }
 
         public AttackDataSO GetAttackData(string dataName)
@@ -48,15 +49,9 @@ namespace BGD.Agents
             return data;
         }
 
-        public void SetAttackData(string dataName)
+        public void SetAttackData(AttackDataSO changeAtkData)
         {
-            _currentAttackData = _attackDictionary.GetValueOrDefault(dataName, null);
-            Debug.Assert(_currentAttackData != null, $"{dataName}없는 데이터.");
-        }
-
-        public void Attack()
-        {
-
+            _currentAttackData = changeAtkData;
         }
     }
 }

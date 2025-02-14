@@ -33,6 +33,7 @@ namespace BGD.Players
             _renderer.SetParam(_player.attackCompoParam, _attackComboCnt);
             _mover.CanMove = false;
             _mover.StopImmediately(true);
+            SetAttackData();
         }
         private void SetAttackData()
         {
@@ -41,11 +42,20 @@ namespace BGD.Players
             if (Mathf.Abs(xInput) > 0)
                 atkDirection = Mathf.Sign(xInput); // 키보드로 누르고 있는 방향을 우선한다.
 
+            AttackDataSO atkData = _attackCompo.GetAttackData($"PlayerCompoAttack{_attackComboCnt}");
+
+            Vector2 movement = atkData.attackMove;
+            movement.x *= atkDirection;
+            _mover.AddForce(movement);
+
+            _attackCompo.SetAttackData(atkData);
         }
 
         public override void Update()
         {
             base.Update();
+            if (_isEndTrigger)
+                _player.ChangeState(FSMState.IDLE);
         }
 
         

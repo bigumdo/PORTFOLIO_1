@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add41ab188ff27246a81a1c41bb209fb, type: 3}
+  m_Name: PlayerCompoAttack2
+  m_EditorClassIdentifier: 
+  dataName: PlayerCompoAttack2
+  attackMove: {x: 0, y: 0}
+  damage: 0
+  isknockBack: 0
+  knockBackForce: {x: 0, y: 0}
+  isCameraShake: 0
+  cameraShakeForce: 0
+  cameraShakeDuration: 0

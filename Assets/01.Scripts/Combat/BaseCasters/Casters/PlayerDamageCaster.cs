@@ -7,7 +7,13 @@ namespace BGD.Casters
 {
     public class PlayerDamageCaster : BaseCaster, IColliderCaster
     {
-        [SerializeField] protected int _damage;
+        private AgentAttackCompo _atkCompo;
+
+        public override void Initialize(Agent agent)
+        {
+            base.Initialize(agent);
+            _atkCompo = agent.GetCompo<AgentAttackCompo>();
+        }
 
         public  bool ColliderCast(Collider2D[] colliders)
         {
@@ -15,8 +21,8 @@ namespace BGD.Casters
             {
                 if (colliders[i].TryGetComponent(out AgentHealth health))
                 {
-                    //나중에 범위로 데미지 들어가게 할꺼임
-                    health.ApplyDamage(_damage);
+
+                    health.ApplyDamage(_atkCompo.Damge);
                 }
             }
             return false;

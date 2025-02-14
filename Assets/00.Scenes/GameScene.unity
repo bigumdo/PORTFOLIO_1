@@ -4038,7 +4038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1976358352
 Transform:
   m_ObjectHideFlags: 0
@@ -4066,8 +4066,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72e0963249daab4299a37167e6535f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageStat: {fileID: 0}
-  _attackDatas: []
+  _damageStat: {fileID: 11400000, guid: 0b0935d9bf2b63140bdaf1f6a7179a6c, type: 2}
+  _attackDatas:
+  - {fileID: 11400000, guid: ba662fa182d09d148b4342907e04236f, type: 2}
+  - {fileID: 11400000, guid: 92b6479280286094397b5e1347a66177, type: 2}
+  - {fileID: 11400000, guid: c427e2908b61d9f4f84ae07adb838c57, type: 2}
 --- !u!1 &1991962282
 GameObject:
   m_ObjectHideFlags: 0

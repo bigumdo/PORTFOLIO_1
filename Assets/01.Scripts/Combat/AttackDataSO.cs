@@ -5,6 +5,7 @@ namespace BGD
     [CreateAssetMenu(fileName = "AttackData", menuName = "SO/Combat/AttackData")]
     public class AttackDataSO : ScriptableObject
     {
+        [Header("BaseSetting")]
         public string dataName;
         public Vector2 attackMove;
         public float damage;
@@ -14,5 +15,7 @@ namespace BGD
         public float cameraShakeForce;
         public float cameraShakeDuration;
 
+        //[Space]
+        //[Header("CompoAttack")]
     }
 }

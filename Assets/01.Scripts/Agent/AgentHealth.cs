@@ -12,8 +12,9 @@ namespace BGD.Agents
             _agent = agent;
         }
 
-        internal void ApplyDamage(int damage)
+        internal void ApplyDamage(float damage)
         {
+
         }
     }
 }
