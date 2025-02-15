@@ -35,17 +35,22 @@ namespace BGD.Players
 
         public void OnAttack(InputAction.CallbackContext context)
         {
-            AttackEvent?.Invoke();
+            if(context.performed)
+            {
+                AttackEvent?.Invoke();
+            } 
         }
 
         public void OnInteract(InputAction.CallbackContext context)
         {
-            InteractEvent?.Invoke();
+            if (context.performed)
+                InteractEvent?.Invoke();
         }
 
         public void OnJump(InputAction.CallbackContext context)
         {
-            JumpEvent?.Invoke();
+            if (context.performed)
+                JumpEvent?.Invoke();
         }
 
         public void OnMove(InputAction.CallbackContext context)
@@ -55,12 +60,14 @@ namespace BGD.Players
 
         public void OnDash(InputAction.CallbackContext context)
         {
-            DashEvent?.Invoke();
+            if (context.performed)
+                DashEvent?.Invoke();
         }
 
         public void OnGuard(InputAction.CallbackContext context)
         {
-            GuardEvent?.Invoke();
+            if (context.performed)
+                GuardEvent?.Invoke();
         }
     }
 }

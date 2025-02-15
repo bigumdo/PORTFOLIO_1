@@ -6,7 +6,6 @@ namespace BGD.Casters
     {
         public bool ColliderCast(Collider2D[] colliders)
         {
-            Debug.Log("¼º°ø");
             return false;
         }
     }

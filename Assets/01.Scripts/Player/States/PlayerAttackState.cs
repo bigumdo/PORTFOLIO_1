@@ -9,7 +9,7 @@ namespace BGD.Players
     {
         private float _lastAttackTime = 0;
         private float _attackDelayTime;
-        private int _attackComboCnt;
+        private int _attackComboCnt = 0;
 
         private AgentMover _mover;
         private AgentAttackCompo _attackCompo;
@@ -20,12 +20,13 @@ namespace BGD.Players
             _player = agent as Player;
             _mover = agent.GetCompo<AgentMover>();
             _attackCompo = agent.GetCompo<AgentAttackCompo>();
+            _attackDelayTime = 0.2f;
         }
 
         public override void Enter()
         {
             base.Enter();
-            if (_attackDelayTime + Time.time > _lastAttackTime
+            if (Time.time > _lastAttackTime + _attackDelayTime
                 || _attackComboCnt > 2)
             {
                 _attackComboCnt = 0;
@@ -51,9 +52,19 @@ namespace BGD.Players
             _attackCompo.SetAttackData(atkData);
         }
 
+        public override void Exit()
+        {
+            base.Exit();
+            _attackComboCnt++;
+            _lastAttackTime = Time.time;
+        }
+
         public override void Update()
         {
             base.Update();
+
+
+
             if (_isEndTrigger)
                 _player.ChangeState(FSMState.IDLE);
         }
