@@ -423,6 +423,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1329,7 +1342,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warrior_Sheet-Effect_41
+      name: Jump_1
       rect:
         serializedVersion: 2
         x: 345
@@ -1351,7 +1364,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warrior_Sheet-Effect_42
+      name: Jump_2
       rect:
         serializedVersion: 2
         x: 0
@@ -1373,7 +1386,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warrior_Sheet-Effect_43
+      name: Jump_3
       rect:
         serializedVersion: 2
         x: 69
@@ -1395,7 +1408,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warrior_Sheet-Effect_44
+      name: Fall_1
       rect:
         serializedVersion: 2
         x: 138
@@ -1417,7 +1430,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warrior_Sheet-Effect_45
+      name: Fall_2
       rect:
         serializedVersion: 2
         x: 207
@@ -1439,7 +1452,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warrior_Sheet-Effect_46
+      name: Fall_3
       rect:
         serializedVersion: 2
         x: 276
@@ -1461,7 +1474,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warrior_Sheet-Effect_47
+      name: Fall_4
       rect:
         serializedVersion: 2
         x: 345
@@ -1483,7 +1496,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warrior_Sheet-Effect_48
+      name: Fall_5
       rect:
         serializedVersion: 2
         x: 0
@@ -1747,7 +1760,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warrior_Sheet-Effect_60
+      name: WallSlide_1
       rect:
         serializedVersion: 2
         x: 0
@@ -1769,7 +1782,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warrior_Sheet-Effect_61
+      name: WallSlide_2
       rect:
         serializedVersion: 2
         x: 69
@@ -1791,7 +1804,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warrior_Sheet-Effect_62
+      name: WallSlide_3
       rect:
         serializedVersion: 2
         x: 138
@@ -2650,6 +2663,11 @@ TextureImporter:
       Dead_7: 8758733799639075308
       Dead_8: 4273360486593703493
       Dead_9: 8740081516789230483
+      Fall_1: 3578844115799939244
+      Fall_2: -8346973252730123848
+      Fall_3: 3675700599212663255
+      Fall_4: -6199907869733816761
+      Fall_5: -9068822172998705990
       GrabWall_1: 4778756267546337206
       GrabWall_10: -1406694122392401829
       GrabWall_11: 3914160388638673933
@@ -2667,6 +2685,9 @@ TextureImporter:
       Idle_4: -7105675749794256429
       Idle_5: 932576740597027765
       Idle_6: 8053934741035486310
+      Jump_1: -7784280053648753441
+      Jump_2: -8105224185696963899
+      Jump_3: 565109345717033213
       Move_1: 4312510042007804440
       Move_2: -3637831218265681369
       Move_3: 7890055846987212836
@@ -2682,23 +2703,15 @@ TextureImporter:
       Slide_5: -3380132617870049673
       Slide_6: -6656010539272679822
       Slide_7: -6761883565659206456
+      WallSlide_1: 709901728315876072
+      WallSlide_2: -5647377392427310024
+      WallSlide_3: -5110843521143403644
       Warrior_Sheet-Effect_26: 2833012263988642564
       Warrior_Sheet-Effect_36: 4245071895355107723
       Warrior_Sheet-Effect_37: 8207571220096118977
       Warrior_Sheet-Effect_38: 7910466545735013580
       Warrior_Sheet-Effect_39: -4360246032673291897
       Warrior_Sheet-Effect_40: -6130774247032492815
-      Warrior_Sheet-Effect_41: -7784280053648753441
-      Warrior_Sheet-Effect_42: -8105224185696963899
-      Warrior_Sheet-Effect_43: 565109345717033213
-      Warrior_Sheet-Effect_44: 3578844115799939244
-      Warrior_Sheet-Effect_45: -8346973252730123848
-      Warrior_Sheet-Effect_46: 3675700599212663255
-      Warrior_Sheet-Effect_47: -6199907869733816761
-      Warrior_Sheet-Effect_48: -9068822172998705990
-      Warrior_Sheet-Effect_60: 709901728315876072
-      Warrior_Sheet-Effect_61: -5647377392427310024
-      Warrior_Sheet-Effect_62: -5110843521143403644
       Warrior_Sheet-Effect_63: -8626763743991069669
       Warrior_Sheet-Effect_64: -8669300221853394086
       Warrior_Sheet-Effect_65: -8606690382453196554

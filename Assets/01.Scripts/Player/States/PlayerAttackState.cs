@@ -31,6 +31,7 @@ namespace BGD.Players
             {
                 _attackComboCnt = 0;
             }
+
             _renderer.SetParam(_player.attackCompoParam, _attackComboCnt);
             _mover.CanMove = false;
             _mover.StopImmediately(true);
@@ -54,16 +55,17 @@ namespace BGD.Players
 
         public override void Exit()
         {
-            base.Exit();
             _attackComboCnt++;
             _lastAttackTime = Time.time;
+            _mover.CanMove = true;
+            _mover.StopImmediately();
+
+            base.Exit();
         }
 
         public override void Update()
         {
             base.Update();
-
-
 
             if (_isEndTrigger)
                 _player.ChangeState(FSMState.IDLE);

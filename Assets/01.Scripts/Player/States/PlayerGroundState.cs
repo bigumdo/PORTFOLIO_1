@@ -23,6 +23,13 @@ namespace BGD.Players
             _player.PlayerInput.JumpEvent += HandleJumpEvent;
         }
 
+        public override void Exit()
+        {
+            _player.PlayerInput.AttackEvent -= HandleAttackEvent;
+            _player.PlayerInput.JumpEvent -= HandleJumpEvent;
+            base.Exit();
+        }
+
         private void HandleJumpEvent()
         {
             _player.ChangeState(FSMState.JUMP);
