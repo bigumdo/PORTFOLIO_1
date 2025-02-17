@@ -25,12 +25,12 @@ namespace BGD.Agents
             AfterInitComponenets();
         }
 
-        private void InitComponenet()
+        protected virtual void InitComponenet()
         {
             _components.Values.ToList().ForEach(component => component.Initialize(this));
         }
 
-        private void AfterInitComponenets()
+        protected virtual void AfterInitComponenets()
         {
             _components.Values.ToList().ForEach(component =>
             {

@@ -14,55 +14,50 @@ namespace BGD.Agents
         public float LimitYSpeed { get; set;}
 
         [Header("MoveStat")]
-        [SerializeField] private StatSO _moveSpeedStat;
-        [SerializeField] private float _moveSpeed;
+        [SerializeField] protected StatSO _moveSpeedStat;
+        [SerializeField] protected float _moveSpeed;
 
-        [SerializeField] private LayerMask _layerMask;
-        [SerializeField] private float _groundCheckWidth, _wallCheckerWidth, _grabWallCheckerWidth;
+        [SerializeField] protected LayerMask _layerMask;
+        [SerializeField] protected float _groundCheckWidth, _wallCheckerWidth, _grabWallCheckerWidth;
 
         [Header("AnimParams")]
-        [SerializeField] private StatSO _ySpeedParam;
+        [SerializeField] protected StatSO _ySpeedParam;
 
-        private Rigidbody2D _rbcompo;
-        private Agent _agent;
-        private AgentRenderer _renderer;
-        private AgentStat _stat;
-        private Caster _caster;
+        protected Rigidbody2D _rbcompo;
+        protected Agent _agent;
+        protected AgentRenderer _renderer;
+        protected AgentStat _agentStat;
+        protected Caster _caster;
 
-        private float _xMovement;
+        protected float _xMovement;
 
-        private Collider2D _collider;
+        protected Collider2D _collider;
 
-        public void Initialize(Agent agent)
+        public virtual void Initialize(Agent agent)
         {
             _agent = agent;
             _rbcompo = agent.GetComponent<Rigidbody2D>();
             _renderer = agent.GetCompo<AgentRenderer>();
-            _stat = agent.GetCompo<AgentStat>();
+            _agentStat = agent.GetCompo<AgentStat>();
             _caster = agent.GetCompo<Caster>();
             _collider = agent.GetComponent<Collider2D>();
         }
 
-        public void AfterInit()
+        public virtual void AfterInit()
         {
-            _stat.MoveSpeedStat.OnValueChange += HandleMoveSpeedChange;
-            _moveSpeed = _stat.MoveSpeedStat.Value;
+            _agentStat.MoveSpeedStat.OnValueChange += HandleMoveSpeedChange;
+            _moveSpeed = _agentStat.MoveSpeedStat.Value;
             LimitYSpeed = 40f;
         }
 
         private void OnDestroy()
         {
-            _stat.MoveSpeedStat.OnValueChange -= HandleMoveSpeedChange;
+            _agentStat.MoveSpeedStat.OnValueChange -= HandleMoveSpeedChange;
         }
 
         private void HandleMoveSpeedChange(StatSO stat, float current, float previous)
         {
             _moveSpeed = current;
-        }
-
-        public void AddForceToAgent(Vector2 force, ForceMode2D forceMode = ForceMode2D.Impulse)
-        {
-            _rbcompo.AddForce(force, forceMode);
         }
 
         public void AddForce(Vector2 force, ForceMode2D forceMode2D = ForceMode2D.Impulse)
@@ -84,7 +79,7 @@ namespace BGD.Agents
 
         public void SetMovement(float xMovement) => _xMovement = xMovement;
 
-        public void FixedUpdate()
+        public virtual void FixedUpdate()
         {
             CheckGround();
             MoveCharacter();
@@ -92,7 +87,7 @@ namespace BGD.Agents
             _rbcompo.linearVelocityY = Math.Clamp(_rbcompo.linearVelocityY, -LimitYSpeed, LimitYSpeed);
         }
 
-        private void MoveCharacter()
+        protected virtual void MoveCharacter()
         {
             if(CanMove)
             {
@@ -100,23 +95,16 @@ namespace BGD.Agents
             }
 
             _renderer.FlipControl(_xMovement);
-
         }
 
-        private void CheckGround()
+        protected virtual void CheckGround()
         {
             IsGrounded = _caster.Cast(CastTypeEnum.Ground);
         }
 
-        private void IsWallDetected()
+        protected virtual void IsWallDetected()
         {
 
         }
-
-        public void Movement()
-        {
-
-        }
-
     }
 }

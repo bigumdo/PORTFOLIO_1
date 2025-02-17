@@ -10,7 +10,7 @@ namespace BGD.Agents
     {
         private Caster _caster;
         private AgentMover _mover;
-        private AgentStat _stat;
+        private AgentStat _agentStat;
         private Dictionary<string, AttackDataSO> _attackDictionary;
         private AttackDataSO _currentAttackData;
         private AgentAnimationTrigger _animTrigger;
@@ -25,14 +25,14 @@ namespace BGD.Agents
         {
             _caster = agent.GetCompo<Caster>();
             _mover = agent.GetCompo<AgentMover>();
-            _stat = agent.GetCompo<AgentStat>();
+            _agentStat = agent.GetCompo<AgentStat>();
             _animTrigger = agent.GetCompo<AgentAnimationTrigger>();
             _attackDictionary =  new Dictionary<string, AttackDataSO>();
             _attackDatas.ForEach(data => _attackDictionary.Add(data.dataName,data));
         }
         public void AfterInit()
         {
-            _damageStat = _stat.GetStat(_damageStat);
+            _damageStat = _agentStat.GetStat(_damageStat);
             _animTrigger.OnAttackTrigger += HandleAttackTrigger;
         }
 

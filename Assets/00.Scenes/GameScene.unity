@@ -439,10 +439,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 690303841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0481cf3984e0d7b45af8d1f19a46dfbb, type: 3}
+  m_Script: {fileID: 11500000, guid: fddbdcf2d6f541748a53121257898f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeedStat: {fileID: 11400000, guid: 0b0935d9bf2b63140bdaf1f6a7179a6c, type: 2}
+  _moveSpeedStat: {fileID: 0}
   _moveSpeed: 0
   _layerMask:
     serializedVersion: 2
@@ -4169,6 +4169,8 @@ MonoBehaviour:
   states: {fileID: 11400000, guid: c524e6d2c1a13cf4c8eef2a8bd488bc2, type: 2}
   attackCompoParam: {fileID: 11400000, guid: e269098655365eb4c94961e6ae176372, type: 2}
   <PlayerInput>k__BackingField: {fileID: 11400000, guid: b6c7843907f5f5e44a4ca63c500a2895, type: 2}
+  jumpCntStat: {fileID: 11400000, guid: 1d0dacd67b5c53b47bc62e8aa8531b8b, type: 2}
+  jumpPowerStat: {fileID: 11400000, guid: 91dfe203f4e2524419b4b5a39ed01fcf, type: 2}
 --- !u!50 &1991962286
 Rigidbody2D:
   serializedVersion: 5

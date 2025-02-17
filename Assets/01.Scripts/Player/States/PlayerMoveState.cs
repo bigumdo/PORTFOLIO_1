@@ -1,5 +1,6 @@
 using BGD.Agents;
 using BGD.Animators;
+using BGD.StatSystem;
 using UnityEngine;
 
 namespace BGD.Players
@@ -19,12 +20,6 @@ namespace BGD.Players
             {
                 _player.ChangeState(FSM.FSMState.IDLE);
             }
-
-            if(Input.GetKeyDown(KeyCode.Escape))
-            {
-                _mover.StopImmediately();
-            }
-            
         }
     }
 }
