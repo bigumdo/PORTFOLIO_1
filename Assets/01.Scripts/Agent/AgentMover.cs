@@ -1,3 +1,4 @@
+using BGD.Animators;
 using BGD.Casters;
 using BGD.FSM;
 using BGD.StatSystem;
@@ -21,7 +22,7 @@ namespace BGD.Agents
         [SerializeField] protected float _groundCheckWidth, _wallCheckerWidth, _grabWallCheckerWidth;
 
         [Header("AnimParams")]
-        [SerializeField] protected StatSO _ySpeedParam;
+        [SerializeField] protected AnimParamSO _ySpeedParam;
 
         protected Rigidbody2D _rbcompo;
         protected Agent _agent;
@@ -50,7 +51,7 @@ namespace BGD.Agents
             LimitYSpeed = 40f;
         }
 
-        private void OnDestroy()
+        protected virtual void OnDestroy()
         {
             _agentStat.MoveSpeedStat.OnValueChange -= HandleMoveSpeedChange;
         }
@@ -85,6 +86,7 @@ namespace BGD.Agents
             MoveCharacter();
 
             _rbcompo.linearVelocityY = Math.Clamp(_rbcompo.linearVelocityY, -LimitYSpeed, LimitYSpeed);
+            
         }
 
         protected virtual void MoveCharacter()
@@ -95,6 +97,7 @@ namespace BGD.Agents
             }
 
             _renderer.FlipControl(_xMovement);
+            _renderer.SetParam(_ySpeedParam, Velocity.y);
         }
 
         protected virtual void CheckGround()

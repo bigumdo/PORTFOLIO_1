@@ -1,5 +1,6 @@
 using BGD.Agents;
 using BGD.StatSystem;
+using System;
 using UnityEngine;
 
 namespace BGD.Players
@@ -17,7 +18,25 @@ namespace BGD.Players
         {
             base.AfterInit();
             jumpCntStat = _agentStat.GetStat(jumpCntStat);
-            _maxJumpCnt = jumpCntStat.Value;
+            _maxJumpCnt = _currentJumpCnt = jumpCntStat.Value;
+            jumpCntStat.OnValueChange += HandleJumpCntChange;
         }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            jumpCntStat.OnValueChange -= HandleJumpCntChange;
+        }
+
+        private void HandleJumpCntChange(StatSO stat, float current, float previous)
+        {
+            _maxJumpCnt = current;
+            ResetJumpCnt();
+        }
+
+        public void DecreaseJumpCnt() => _currentJumpCnt--;
+
+        public void ResetJumpCnt() => _currentJumpCnt = _maxJumpCnt;
+        
     }
 }

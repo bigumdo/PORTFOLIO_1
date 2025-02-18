@@ -25,9 +25,9 @@ namespace BGD.Players
         public override void Update()
         {
             base.Update();
-            if(_mover.IsGrounded)
+            if(_mover.Velocity.y < 0)
             {
-                _player.ChangeState(FSMState.IDLE);
+                _player.ChangeState(FSMState.FALL);
             }
         }
     }

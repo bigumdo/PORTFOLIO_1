@@ -442,15 +442,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddbdcf2d6f541748a53121257898f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeedStat: {fileID: 0}
-  _moveSpeed: 0
+  _moveSpeedStat: {fileID: 11400000, guid: 0b0935d9bf2b63140bdaf1f6a7179a6c, type: 2}
+  _moveSpeed: 5
   _layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   _groundCheckWidth: 0
   _wallCheckerWidth: 0
   _grabWallCheckerWidth: 0
-  _ySpeedParam: {fileID: 0}
+  _ySpeedParam: {fileID: 11400000, guid: 8421ad686e410c44cb354f585170d2dc, type: 2}
+  jumpCntStat: {fileID: 11400000, guid: 1d0dacd67b5c53b47bc62e8aa8531b8b, type: 2}
 --- !u!1 &774462601
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,6 +797,12 @@ MonoBehaviour:
     _overrideBaseValue: 0
   - _stat: {fileID: 11400000, guid: 0b0935d9bf2b63140bdaf1f6a7179a6c, type: 2}
     _isUseOverride: 1
+    _overrideBaseValue: 20
+  - _stat: {fileID: 11400000, guid: 1d0dacd67b5c53b47bc62e8aa8531b8b, type: 2}
+    _isUseOverride: 0
+    _overrideBaseValue: 20
+  - _stat: {fileID: 11400000, guid: 91dfe203f4e2524419b4b5a39ed01fcf, type: 2}
+    _isUseOverride: 0
     _overrideBaseValue: 20
 --- !u!1 &1647203760
 GameObject:
