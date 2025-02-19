@@ -3,12 +3,13 @@ using BGD.Animators;
 using BGD.FSM;
 using System;
 using System.Diagnostics;
+using UnityEngine;
 
 namespace BGD.Players
 {
     public abstract class PlayerGroundState : AgentState
     {
-        protected AgentMover _mover;
+        protected PlayerMover _mover;
         protected Player _player;
         protected PlayerGroundState(Agent agent, AnimParamSO animParam) : base(agent, animParam)
         {
@@ -32,6 +33,7 @@ namespace BGD.Players
 
         private void HandleJumpEvent()
         {
+            if(_mover.CanJump)
             _player.ChangeState(FSMState.JUMP);
         }
 

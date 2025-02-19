@@ -16,10 +16,8 @@ namespace BGD.Agents
 
         [Header("MoveStat")]
         [SerializeField] protected StatSO _moveSpeedStat;
-        [SerializeField] protected float _moveSpeed;
+        private float _moveSpeed;
 
-        [SerializeField] protected LayerMask _layerMask;
-        [SerializeField] protected float _groundCheckWidth, _wallCheckerWidth, _grabWallCheckerWidth;
 
         [Header("AnimParams")]
         [SerializeField] protected AnimParamSO _ySpeedParam;
@@ -104,7 +102,7 @@ namespace BGD.Agents
         {
             IsGrounded = _caster.Cast(CastTypeEnum.Ground);
         }
-
+        
         protected virtual void IsWallDetected()
         {
 

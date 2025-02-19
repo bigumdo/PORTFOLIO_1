@@ -12,6 +12,7 @@ namespace BGD.Players
 
         public PlayerJumpState(Agent agent, AnimParamSO animParam) : base(agent, animParam)
         {
+            _stat = agent.GetCompo<AgentStat>();
         }
 
         public override void Enter()

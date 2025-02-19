@@ -6,7 +6,7 @@ namespace BGD.Casters
     {
         public bool ColliderCast(Collider2D[] colliders)
         {
-            return false;
+            return true;
         }
     }
 }

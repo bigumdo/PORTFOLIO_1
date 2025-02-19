@@ -14,5 +14,17 @@ namespace BGD.Players
             _player = agent as Player;
             _mover = agent.GetCompo<PlayerMover>();
         }
+
+        public override void Enter()
+        {
+            base.Enter();
+        }
+
+        public override void Update()
+        {
+            base.Update();
+
+            _mover.SetMovement(_player.PlayerInput.InputDirection.x);
+        }
     }
 }

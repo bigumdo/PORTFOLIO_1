@@ -31,12 +31,18 @@ namespace BGD.Players
         private void HandleJumpCntChange(StatSO stat, float current, float previous)
         {
             _maxJumpCnt = current;
+            bool Yess = true;
+            Yess = Yess ? true : false;
             ResetJumpCnt();
         }
 
         public void DecreaseJumpCnt() => _currentJumpCnt--;
 
         public void ResetJumpCnt() => _currentJumpCnt = _maxJumpCnt;
-        
+
+        public void SetRigidType(RigidbodyType2D changeType)
+        {
+            _rbcompo.bodyType = changeType;
+        }
     }
 }
