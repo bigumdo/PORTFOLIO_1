@@ -18,6 +18,7 @@ namespace BGD.Players
         public override void Enter()
         {
             base.Enter();
+            _mover.StopImmediately(true);
             StatSO jumpPowerStat = _stat.GetStat(_player.jumpPowerStat);
             Vector2 jumpPower = new Vector2(0, jumpPowerStat.Value);
             _mover.AddForce(jumpPower);

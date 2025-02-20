@@ -11,14 +11,14 @@ namespace BGD.Players
         private float _attackDelayTime;
         private int _attackComboCnt = 0;
 
-        private AgentMover _mover;
+        private PlayerMover _mover;
         private AgentAttackCompo _attackCompo;
         private Player _player;
 
         public PlayerAttackState(Agent agent, AnimParamSO animParam) : base(agent, animParam)
         {
             _player = agent as Player;
-            _mover = agent.GetCompo<AgentMover>();
+            _mover = agent.GetCompo<PlayerMover>();
             _attackCompo = agent.GetCompo<AgentAttackCompo>();
             _attackDelayTime = 0.2f;
         }
@@ -48,7 +48,7 @@ namespace BGD.Players
 
             Vector2 movement = atkData.attackMove;
             movement.x *= atkDirection;
-            _mover.AddForce(movement);
+            //_mover.AddForce(movement);
 
             _attackCompo.SetAttackData(atkData);
         }
