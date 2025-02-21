@@ -16,6 +16,7 @@ namespace BGD.Players
             base.Enter();
             _mover.SetRigidType(RigidbodyType2D.Kinematic);
             _mover.StopImmediately();
+            _mover.CanMove = false;
         }
 
         public override void Update()

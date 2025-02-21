@@ -48,7 +48,7 @@ namespace BGD.Players
 
             Vector2 movement = atkData.attackMove;
             movement.x *= atkDirection;
-            //_mover.AddForce(movement);
+            _mover.AddForce(movement);
 
             _attackCompo.SetAttackData(atkData);
         }
