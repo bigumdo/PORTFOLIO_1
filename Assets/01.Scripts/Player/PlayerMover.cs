@@ -6,6 +6,8 @@ using UnityEngine;
 namespace BGD.Players
 {
     public class PlayerMover : AgentMover
+
+
     {
         [Header("StatSetting")]
         public StatSO jumpCntStat;

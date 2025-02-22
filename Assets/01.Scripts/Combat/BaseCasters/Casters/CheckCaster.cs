@@ -7,8 +7,6 @@ namespace BGD.Casters
     {
         public bool ColliderCast(Collider2D[] colliders)
         {
-            Debug.Log(colliders[0].name);
-
             if (colliders[0].TryGetComponent(out BaseGround ground))
             {
 
