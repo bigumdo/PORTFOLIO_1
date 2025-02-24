@@ -34,6 +34,7 @@ namespace BGD.Agents
         {
             FacingDirection *= -1;
             _agent.transform.Rotate(0, 180, 0);
+            //_agent.transform.localScale = new Vector3(FacingDirection,1,1);
         }
 
     }

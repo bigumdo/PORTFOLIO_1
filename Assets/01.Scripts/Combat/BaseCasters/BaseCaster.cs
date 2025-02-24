@@ -42,15 +42,11 @@ namespace BGD.Casters
             _agent = agent;
         }
 
-        [ContextMenu("TestMethod")]
-        public void TestMethod()
-        {
-            Debug.Log(castRange);
-        }
-
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.green;
+            Vector2 castDir = new Vector2(castOffset.x * _agent.GetCompo<AgentRenderer>().FacingDirection, castOffset.y);
+
             switch (castMethodType)
             {
                 case CastMethodType.Circle:
@@ -80,7 +76,7 @@ namespace BGD.Casters
                             break;
                     }
 
-                    Gizmos.DrawRay((Vector2)transform.position, dir * rayDistance);
+                    Gizmos.DrawRay((Vector2)transform.position + castOffset, dir * rayDistance);
                     break;
             }
         }
